@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('sku', 10)->unique();
-            $table->string('name');
-            $table->integer('unit_price'); // stored in cents
+            $table->integer('total_price');
+            $table->enum('status', ['created', 'completed', 'canceled'])->default('created');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('orders');
     }
 };

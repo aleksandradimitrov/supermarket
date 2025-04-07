@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class ProductSpecialPrice extends Model
 {
     use HasFactory;
 
-    protected $table = "products";
+    protected $table = 'product_special_prices';
 
     protected $guarded = ['id'];
 
-    public function specialPrices()
+    public function product()
     {
-        return $this->hasMany(ProductSpecialPrice::class);
+        return $this->belongsTo(Product::class);
     }
 }
