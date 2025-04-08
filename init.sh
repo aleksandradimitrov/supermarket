@@ -17,6 +17,8 @@ php artisan key:generate
 # Run migrations
 php artisan migrate --force
 
+php artisan db:seed
+
 # Optional: seed the database
 # php artisan db:seed --force
 
